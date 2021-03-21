@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
@@ -9,7 +9,17 @@ export default {
   component: Button,
 } as Meta;
 
-const Template: Story<ButtonProps> = (args) => <Button {...args}>Тест</Button>;
+const Template: Story<ButtonProps> = (args) => {
+  const [clickTimes, setClickTimes] = useState(0);
+  return (
+    <>
+      <Button {...args} onClick={() => {setClickTimes(clickTimes + 1)}}>Тест</Button>
+      <p>
+        Вы нажали кнопку {clickTimes} раз.
+      </p>
+    </>
+  )
+};
 
 export const Default = Template.bind({});
 

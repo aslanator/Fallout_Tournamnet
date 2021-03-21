@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export type ButtonProps = {
     size?: 'small' | 'medium' | 'large',
-    children: React.ReactNode,
+    onClick?: () => void;
 }
 
 const ButtonS = styled.button`
@@ -30,8 +30,8 @@ const ButtonS = styled.button`
     }
 `;
 
-export const Button: React.FC<ButtonProps> = ({size, children}) => {
+export const Button: React.FC<ButtonProps> = ({size, children, ...props}) => {
     return (
-        <ButtonS size={size}>{children}</ButtonS>
+        <ButtonS {...props} size={size}>{children}</ButtonS>
     )
 };
