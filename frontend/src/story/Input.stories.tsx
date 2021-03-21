@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
@@ -9,7 +9,16 @@ export default {
   component: InputText,
 } as Meta;
 
-const Template: Story<InputTextProps> = (args) => <InputText {...args} />;
+const Template: Story<InputTextProps> = (args) => {
+    const [value, setValue] = useState('');
+    const onChange = (value: string) => {
+        setValue(value);
+    };
+
+    return (
+        <><InputText {...args} value={value} onChange={onChange} /><p>{value}</p></>
+    )
+};
 
 export const Default = Template.bind({});
 Default.args = {

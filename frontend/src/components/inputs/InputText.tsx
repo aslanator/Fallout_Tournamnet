@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import {InputContainer} from 'components/inputs/InputContainer';
 
 export type InputTextProps = {
     placeholder: string;
     required: boolean;
+    value?: string;
+    onChange: (value: string) => void
 }
 
 const InputTextS = styled.input`
@@ -21,11 +23,10 @@ const InputTextS = styled.input`
     }
 `;
 
-export const InputText: React.FC<InputTextProps> = ({placeholder, required = false}) => {
-    const [value, changeValue] = useState('');
+export const InputText: React.FC<InputTextProps> = ({placeholder, required = false, value = '', onChange}) => {
     return (
         <InputContainer required={required}>
-            <InputTextS type="text" placeholder={placeholder} value={value} onChange={event => changeValue(event.target.value)}/>
+            <InputTextS type="text" placeholder={placeholder} value={value} onChange={event => onChange(event.target.value)}/>
         </InputContainer>
     );
 }
