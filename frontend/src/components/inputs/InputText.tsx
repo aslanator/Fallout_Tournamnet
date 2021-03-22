@@ -6,6 +6,7 @@ export type InputTextProps = {
     placeholder: string;
     required: boolean;
     value?: string;
+    integer: boolean;
     onChange: (value: string) => void
 }
 
@@ -23,10 +24,18 @@ const InputTextS = styled.input`
     }
 `;
 
-export const InputText: React.FC<InputTextProps> = ({placeholder, required = false, value = '', onChange}) => {
+export const InputText: React.FC<InputTextProps> = ({placeholder, required = false, value = '', integer = false, onChange}) => {
+    const getValue = (value: string): string => {
+        let mutatedValue: string | number = value;
+        if(integer) {
+            mutatedValue = parseInt(value);
+            mutatedValue = isNaN(mutatedValue) ? 0 : mutatedValue;
+        }
+        return String(mutatedValue);
+    }
     return (
         <InputContainer required={required}>
-            <InputTextS type="text" placeholder={placeholder} value={value} onChange={event => onChange(event.target.value)}/>
+            <InputTextS type="text" placeholder={placeholder} value={value} onChange={event => onChange(getValue(event.target.value))}/>
         </InputContainer>
     );
 }

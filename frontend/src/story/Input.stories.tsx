@@ -30,3 +30,9 @@ Required.args = {
     placeholder: 'Обязательно введите текст...',
     required: true,
 }
+
+export const Integer = Template.bind({});
+Integer.args = {
+    placeholder: 'Введите цифры...',
+    integer: true
+}
