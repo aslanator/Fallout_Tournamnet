@@ -3,15 +3,22 @@ import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
 import { Button } from './components/buttons/Button';
+import { Sidebar } from 'components/sidebar/Sidebar';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
+    <Router>
+      <Sidebar />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload. Color is - <Button title="test"/>
+          Edit <code>src/App.tsx</code> and save to reload. Color is - <Button>test</Button>
         </p>
         <span>
           <span>Learn </span>
@@ -52,7 +59,7 @@ function App() {
           </a>
         </span>
       </header>
-    </div>
+    </Router>
   );
 }
 
