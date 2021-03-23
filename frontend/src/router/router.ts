@@ -1,8 +1,10 @@
-import {LocationDescriptor} from 'history';
+import {PlayerIndex} from 'pages/player/index/PlayerIndex';
+import {TournamentIndex} from 'pages/tournament/index/TournamentIndex';
 
 export type route = {
-    to: LocationDescriptor,
+    to: string,
     title: string;
+    page: () => JSX.Element;
 }
 
 export type routeModel = {
@@ -11,15 +13,17 @@ export type routeModel = {
 
 const players: routeModel = {
     index: {
-        to: "players",
-        title: 'Игроки'
+        to: "/players",
+        title: 'Игроки',
+        page: PlayerIndex,
     }
 }
 
 const tournaments: routeModel = {
     index: {
-        to: "tournaments",
-        title: 'Туриниры'
+        to: "/tournaments",
+        title: 'Туриниры',
+        page: TournamentIndex,
     }
 }
 

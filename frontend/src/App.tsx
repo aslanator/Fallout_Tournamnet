@@ -4,6 +4,7 @@ import { Counter } from './features/counter/Counter';
 import './App.css';
 import { Button } from './components/buttons/Button';
 import { Sidebar } from 'components/sidebar/Sidebar';
+import {routes} from 'router/router';
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,9 +12,17 @@ import {
 } from "react-router-dom";
 
 function App() {
+  const Routes = routes.map(item => (
+    <Route path={item.index.to} key={item.index.to}>{item.index.page}</Route>
+  ));
   return (
     <Router>
       <Sidebar />
+      <div>
+        <Switch>
+          {Routes}
+        </Switch>
+      </div>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
