@@ -1,5 +1,8 @@
 import {PlayerIndex} from 'pages/player/index/PlayerIndex';
+import {PlayerCreate} from 'pages/player/create/PlayerCreate';
 import {TournamentIndex} from 'pages/tournament/index/TournamentIndex';
+import { Counter } from 'features/counter/Counter';
+import _ from 'lodash';
 
 export type route = {
     to: string,
@@ -8,7 +11,8 @@ export type route = {
 }
 
 export type routeModel = {
-    index: route
+    index: route,
+    create?: route,
 }
 
 const players: routeModel = {
@@ -16,6 +20,11 @@ const players: routeModel = {
         to: "/players",
         title: 'Игроки',
         page: PlayerIndex,
+    },
+    create: {
+        to: "/players/create",
+        title: 'Создание игрока',
+        page: PlayerCreate,
     }
 }
 
@@ -27,8 +36,16 @@ const tournaments: routeModel = {
     }
 }
 
+const counter: routeModel = {
+    index: {
+        to: "/couter",
+        title: 'Счётчик',
+        page: Counter,
+    }
+}
 
 export const routes: routeModel[] = [
     players,
-    tournaments
+    tournaments,
+    counter
 ];
