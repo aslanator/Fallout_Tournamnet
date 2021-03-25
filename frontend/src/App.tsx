@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './App.css';
 import { Sidebar } from 'components/sidebar/Sidebar';
 import {routes} from 'router/router';
@@ -8,9 +8,11 @@ import {
   Route,
 } from "react-router-dom";
 import styled from 'styled-components';
+import { PageContainer } from 'components/containers/PageContainer';
 
 const Display = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: min-content 1fr;
 `;
 function App() {
   const Routes = routes.reduce<JSX.Element[]>((carry, route) => {
@@ -24,11 +26,11 @@ function App() {
     <Router>
       <Display>
         <Sidebar />
-        <div>
-          <Switch>
+        <Switch>
+          <PageContainer>
             {Routes}
-          </Switch>
-        </div>
+          </PageContainer>
+        </Switch>
       </Display>
     </Router>
   );

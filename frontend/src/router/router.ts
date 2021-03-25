@@ -2,7 +2,6 @@ import {PlayerIndex} from 'pages/player/index/PlayerIndex';
 import {PlayerCreate} from 'pages/player/create/PlayerCreate';
 import {TournamentIndex} from 'pages/tournament/index/TournamentIndex';
 import { Counter } from 'features/counter/Counter';
-import _ from 'lodash';
 
 export type route = {
     to: string,

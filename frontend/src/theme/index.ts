@@ -1,5 +1,4 @@
 import {colors} from './colors';
-import styled from 'styled-components';
 
 export const theme = {
     colors
@@ -14,6 +13,7 @@ declare module 'styled-components' {
         primary2: string,
         primary3: string,
         background: string,
+        background2: string,
         alert: string,
         };
     }

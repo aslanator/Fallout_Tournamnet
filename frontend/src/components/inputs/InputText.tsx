@@ -4,9 +4,9 @@ import {InputContainer} from 'components/inputs/InputContainer';
 
 export type InputTextProps = {
     placeholder: string;
-    required: boolean;
+    required?: boolean;
     value?: string;
-    integer: boolean;
+    integer?: boolean;
     onChange: (value: string) => void
 }
 
@@ -14,7 +14,7 @@ const InputTextS = styled.input`
     border: 1px solid ${props => props.theme.colors.primary3};
     border-radius: 6px;
     outline: none;
-    background: ${props => props.theme.colors.background};
+    background: ${props => props.theme.colors.background2};
     color: ${props => props.theme.colors.primary1};
     font-size: 14px;
     line-height: 150%;

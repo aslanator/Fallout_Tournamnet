@@ -8,25 +8,25 @@ export type SelectOption = {
 }
 
 export type SelectProps = {
-    required: boolean;
     options: SelectOption[];
-    selected: string;
-    onChange: (value: string) => void
+    value: string;
+    onChange: (value: string) => void;
+    required?: boolean;
 }
 
 const SelectS = styled.select`
 
 `;
 
-export const Select: React.FC<SelectProps> = ({options, required = false, selected, onChange}) => {
+export const Select: React.FC<SelectProps> = ({options, required = false, value, onChange}) => {
     const Options = options.map(({value, title}) => (
-        <option selected={value === selected} value={value} key={value}>
+        <option value={value} key={value}>
             {title}
         </option>
     ));
     return (
         <InputContainer required={required}>
-            <SelectS onChange={event => onChange(event.target.value)}>
+            <SelectS onChange={event => onChange(event.target.value)} value={value}>
                 {Options}
             </SelectS>
         </InputContainer>

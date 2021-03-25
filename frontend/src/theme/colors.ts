@@ -5,5 +5,6 @@ export const colors = {
     primary2: '#939694',
     primary3: '#a8b2ac',
     background: '#F3FDF3',
+    background2: '#EEE',
     alert: '#c12f2f',
 };
