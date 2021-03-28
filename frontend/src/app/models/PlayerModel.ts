@@ -1,5 +1,5 @@
 import { CityModel } from "./CityModel";
-import { Model } from "./model";
+import { Model } from "./Model";
 
 export type PlayerModelAttributes = {
     fio: string,

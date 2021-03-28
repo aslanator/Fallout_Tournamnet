@@ -1,4 +1,4 @@
-import { Model } from "./model";
+import { Model } from "./Model";
 
 export type CityModelAttributes = {id: number, title: string};
 

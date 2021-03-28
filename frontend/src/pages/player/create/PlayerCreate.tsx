@@ -5,7 +5,9 @@ import { FormContainer } from 'components/containers/FormContainer';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectPlayerCreateState, setCity, setFio } from './playerCreateSlice';
 
-export const PlayerCreate = () => {
+export type PlayerCreateProps = {};
+
+export const PlayerCreate = (props: PlayerCreateProps) => {
     const dispatch = useDispatch();
 
     const state = useSelector(selectPlayerCreateState);

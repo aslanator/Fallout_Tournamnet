@@ -1,10 +1,10 @@
+import { Container } from 'inversify';
 import React from 'react';
 import { routes } from 'router/router';
 import styled from 'styled-components';
 import { SidebarItemProps, SidebarItem } from './SidebarItem';
 
 export type SidebarProps = {
-
 }
 
 const SidebarS = styled.div`
